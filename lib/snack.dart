@@ -1,11 +1,11 @@
-import 'package:flushbar/flushbar.dart';
+import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 
 class Snack {
-	static BuildContext _snackContext;
+	static late BuildContext _snackContext;
 
 
-	void configure({@required BuildContext context}) {
+	void configure({required BuildContext context}) {
 		_snackContext = context;
 	}
 
@@ -20,7 +20,7 @@ class Snack {
 		return true;
 	}
 
-	Snack.success(String message, {Widget icon, String title}) {
+	Snack.success(String message, {Widget? icon, String? title}) {
 		if (!_checkConfiguration) return;
 		Flushbar(
 			title: title,
@@ -30,14 +30,14 @@ class Snack {
 			flushbarStyle: FlushbarStyle.FLOATING,
 			dismissDirection: FlushbarDismissDirection.HORIZONTAL,
 			margin: EdgeInsets.all(10),
-			borderRadius: 5,
+			borderRadius: BorderRadius.all(Radius.circular(5)),
 			backgroundGradient:
-			LinearGradient(colors: [Colors.green, Colors.green[700]]),
+			LinearGradient(colors: [Colors.green, Colors.lightGreen]),
 			icon: icon,
 		)..show(_snackContext);
 	}
 
-	Snack.warning(String message, {Widget icon, String title}) {
+	Snack.warning(String message, {Widget? icon, String? title}) {
 		if (!_checkConfiguration) return;
 		Flushbar(
 			title: title,
@@ -47,14 +47,14 @@ class Snack {
 			flushbarStyle: FlushbarStyle.FLOATING,
 			dismissDirection: FlushbarDismissDirection.HORIZONTAL,
 			margin: EdgeInsets.all(10),
-			borderRadius: 5,
+			borderRadius: BorderRadius.all(Radius.circular(5)),
 			backgroundGradient:
 			LinearGradient(colors: [Colors.deepOrange, Colors.orangeAccent]),
 			icon: icon,
 		)..show(_snackContext);
 	}
 
-	Snack.info(String message, {Widget icon, String title}) {
+	Snack.info(String message, {Widget? icon, String? title}) {
 		if (!_checkConfiguration) return;
 		Flushbar(
 			title: title,
@@ -64,14 +64,14 @@ class Snack {
 			flushbarStyle: FlushbarStyle.FLOATING,
 			dismissDirection: FlushbarDismissDirection.HORIZONTAL,
 			margin: EdgeInsets.all(10),
-			borderRadius: 5,
+			borderRadius: BorderRadius.all(Radius.circular(5)),
 			backgroundGradient:
 			LinearGradient(colors: [Colors.lightBlue, Colors.blueAccent]),
 			icon: icon,
 		)..show(_snackContext);
 	}
 
-	Snack.error(String message, {Widget icon, String title}) {
+	Snack.error(String message, {Widget? icon, String? title}) {
 		if (!_checkConfiguration) return;
 		Flushbar(
 			title: title,
@@ -81,9 +81,9 @@ class Snack {
 			flushbarStyle: FlushbarStyle.FLOATING,
 			dismissDirection: FlushbarDismissDirection.HORIZONTAL,
 			margin: EdgeInsets.all(10),
-			borderRadius: 5,
+			borderRadius: BorderRadius.all(Radius.circular(5)),
 			backgroundGradient:
-			LinearGradient(colors: [Colors.red, Colors.red[700]]),
+			LinearGradient(colors: [Colors.red, Colors.redAccent]),
 			icon: icon,
 		)..show(_snackContext);
 	}
